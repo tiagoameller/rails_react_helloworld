@@ -1,10 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
+import User from "./User.js"
 class HelloWorld extends React.Component {
   render () {
     return (
       <React.Fragment>
-        Greeting: {this.props.greeting}
+        { this.props.users.map((user) => {
+          return (
+            <User key={user.id} user={user} />
+          )
+        })}
       </React.Fragment>
     );
   }
