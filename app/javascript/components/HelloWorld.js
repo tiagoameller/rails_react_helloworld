@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import User from "./User.js"
+import UserForm from "./UserForm.js"
 class HelloWorld extends React.Component {
   render () {
     return (
@@ -10,6 +11,7 @@ class HelloWorld extends React.Component {
             <User key={user.id} user={user} />
           )
         })}
+        <UserForm key="UserForm"/>
       </React.Fragment>
     );
   }
