@@ -1,17 +1,29 @@
 import React from "react"
 import PropTypes from "prop-types"
 class UserForm extends React.Component {
+  handleChange = (e) => {
+    const name = e.target.name
+    const object = {}
+    object[name] = e.target.value
+    this.props.onUserInput(object)
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.onFormSubmit()
+  }
+
   render () {
     return (
       <React.Fragment>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <h1>Make new user</h1>
-          <input name="first_name" placeholder="First Name" />
-          <input name="last_name" placeholder="Last Name" />
-          <input type="Submit" value="Save user" readOnly />
-        </form>
+            <input name="first_name" placeholder="First Name" onChange={this.handleChange} />
+            <input name="last_name" placeholder="Last Name" onChange={this.handleChange}  />
+            <input type='Submit' value='Save User' readOnly/>
+          </form>
       </React.Fragment>
-    );
+    )
   }
 }
 
