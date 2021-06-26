@@ -1,10 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
+import ReactDOM from "react-dom"
 class UserForm extends React.Component {
   handleChange = (e) => {
-    const name = e.target.name
     const object = {}
-    object[name] = e.target.value
+    object[e.target.name] = e.target.value
     this.props.onUserInput(object)
   }
 
